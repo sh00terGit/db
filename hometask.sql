@@ -50,8 +50,9 @@ CREATE TABLE Customers
     customer_id BIGSERIAL PRIMARY KEY,
     customer_firstName VARCHAR(30) NOT NULL,
     customer_lastName VARCHAR(30) NOT NULL,
-    customer_email VARCHAR(50) UNIQUE,
-    customer_phone VARCHAR(20)
+    customer_email VARCHAR(50) UNIQUE, NOT NULL,
+    customer_phone VARCHAR(20) UNIQUE, NOT NULL,
+    UNIQUE(customer_firstName, customer_lastName)
 );
 
 --  Написать DDL таблицы Orders, должен быть id, customerId, quantity. Должен быть внешний ключ на таблицу customers + ограничения
